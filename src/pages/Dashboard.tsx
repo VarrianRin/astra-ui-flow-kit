@@ -32,19 +32,19 @@ const Dashboard = () => {
         {sessions.length > 0 ? (
           <div className="space-y-8">
             {/* Onboarding video */}
-            <div className="bg-white rounded-lg p-6 shadow-sm border">
-              <h2 className="text-xl font-semibold mb-4">Добро пожаловать в Astra ИИ!</h2>
+            <div className="bg-card rounded-lg p-6 shadow-soft-40 border">
+              <h2 className="text-xl font-semibold mb-4">Добро пожаловать в Астра ИИ!</h2>
               <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center">
                 <div className="text-center">
                   <Play className="w-16 h-16 text-primary mx-auto mb-4" />
-                  <p className="text-gray-600">Обучающее видео</p>
-                  <p className="text-sm text-gray-500">Как использовать платформу</p>
+                  <p className="text-text-body">Обучающее видео</p>
+                  <p className="text-sm text-text-body">Как использовать платформу</p>
                 </div>
               </div>
             </div>
 
             {/* Session history */}
-            <div className="bg-white rounded-lg shadow-sm border">
+            <div className="bg-card rounded-lg shadow-soft-40 border">
               <div className="p-6 border-b">
                 <h2 className="text-xl font-semibold">История сеансов</h2>
               </div>
@@ -52,27 +52,27 @@ const Dashboard = () => {
                 <table className="w-full">
                   <thead className="bg-gray-50">
                     <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-text-body uppercase tracking-wider">
                         Дата
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-text-body uppercase tracking-wider">
                         Инструмент
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-text-body uppercase tracking-wider">
                         Статус
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-text-body uppercase tracking-wider">
                         Оценка
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="bg-white divide-y divide-gray-200">
+                  <tbody className="bg-card divide-y divide-gray-200">
                     {sessions.map((session, index) => (
-                      <tr key={index} className="hover:bg-gray-50">
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      <tr key={index} className="hover:bg-gray-50 transition-colors duration-200">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-foreground">
                           {session.date}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-foreground">
                           {session.tool}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
@@ -84,7 +84,7 @@ const Dashboard = () => {
                             {session.status}
                           </span>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-foreground">
                           {session.rating ? (
                             <div className="flex items-center">
                               {Array.from({ length: session.rating }).map((_, i) => (
@@ -108,13 +108,16 @@ const Dashboard = () => {
             <div className="w-64 h-64 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-8">
               <FileText className="w-24 h-24 text-gray-400" />
             </div>
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-              Добро пожаловать в Astra ИИ!
+            <h2 className="text-2xl font-semibold text-foreground mb-4">
+              Добро пожаловать в Астра ИИ!
             </h2>
-            <p className="text-gray-600 mb-8 max-w-md mx-auto">
+            <p className="text-text-body mb-8 max-w-md mx-auto">
               Начните использовать инструменты для создания планов уроков, подбора заданий и проверки работ
             </p>
-            <Button asChild>
+            <Button 
+              asChild
+              className="bg-gradient-to-r from-gradient-primary-start to-gradient-primary-end hover:opacity-90 transition-opacity duration-200"
+            >
               <a href="/lesson-plan">Начните с плана урока</a>
             </Button>
           </div>

@@ -21,12 +21,12 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen bg-background">
       {/* Fixed Topbar */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-gradient-primary-start to-gradient-primary-end border-b border-gray-200">
         <div className="px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-8">
-              <Link to="/" className="text-2xl font-bold text-primary">
-                Astra ИИ
+              <Link to="/" className="text-2xl font-bold text-white">
+                Астра ИИ
               </Link>
               
               <nav className="hidden md:flex space-x-1">
@@ -34,10 +34,10 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
                   <Link
                     key={item.path}
                     to={item.path}
-                    className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                    className={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                       location.pathname === item.path
-                        ? 'bg-primary text-white'
-                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                        ? 'bg-white/20 text-white'
+                        : 'text-white/80 hover:text-white hover:bg-white/10'
                     }`}
                   >
                     {item.label}
@@ -49,8 +49,8 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
             {/* User menu */}
             <div className="flex items-center space-x-4">
               <div className="relative">
-                <Button variant="ghost" className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white text-sm font-medium">
+                <Button variant="ghost" className="flex items-center space-x-2 text-white hover:bg-white/10">
+                  <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-white text-sm font-medium">
                     У
                   </div>
                   <span className="hidden md:block">Учитель</span>
